@@ -18,7 +18,7 @@ where `cfu` > '10'
 
 SELECT *
 from `students`
-where `date_of_birth` > '1994-12-04'
+where TIMESTAMPDIFF(YEAR, 'date_of_birth, CURDATE()) > 30
 ;
 
 ## Selezionare tutti i corsi del primo semestre del primo anno di un qualsiasi corso di laurea (286)
@@ -63,11 +63,14 @@ where `phone` = 'null'
 
 ## Inserire nella tabella degli studenti un nuovo record con i propri dati (per il campo degree_id, inserire un valore casuale)
 
-INSERT INTO `university_db`.`students` (`degree_id`, `name`, `surname`, `date_of_birth`, `fiscal_code`, `enrolment_date`, `registration_number`, `email`) VALUES ('10000', 'Iulian', 'Botnari', '1993-08-17', 'dkshfkjshdfkjhsdkfjsfd', '2024-12-04', '456446', 'iulian@gmail.com');
+INSERT INTO `university_db`.`students` (`degree_id`, `name`, `surname`, `date_of_birth`, `fiscal_code`, `enrolment_date`, `registration_number`, `email`) 
+VALUES ('10000', 'Iulian', 'Botnari', '1993-08-17', 'dkshfkjshdfkjhsdkfjsfd', '2024-12-04', '456446', 'iulian@gmail.com');
 
 ## Cambiare il numero dell’ufficio del professor Pietro Rizzo in 126
 
-UPDATE `university_db`.`teachers` SET `office_number` = '126' WHERE (`id` = '58');
+UPDATE `university_db`.`teachers` 
+SET `office_number` = '126' 
+WHERE (`id` = '58')
 
 ## Eliminare dalla tabella studenti il record creato precedentemente al punto 9
 
